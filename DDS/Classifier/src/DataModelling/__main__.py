@@ -7,7 +7,6 @@ Created on Mon Jul 23 13:35:30 2018
 
 import warnings; warnings.simplefilter("ignore")
 import argparse
-import matplotlib.pyplot as plt
 
 from TrainingData.FetchDataCsv import training_data
 
@@ -31,7 +30,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 # Feature Boosting Model
 from FeatureEngineering.FeatureBoosting import FeatureBooster
-from FeatureSelection.FeatureSelection import FeatureSelection
+# from FeatureSelection.FeatureSelection import FeatureSelection
 
 build_model = BuildModel()
 log = logger(name="DataModelling.__main__")
@@ -111,11 +110,9 @@ def main():
     log.info("Vectorizer used for modelling: ")
     print (vectorizer)
 
-    feature_selector = FeatureSelection()
     log.info("Train Data: {}%, Test Data: {}%".format((1 - test_size)*100, test_size*100))
 
     feature_booster = FeatureBooster(vectorizer=vectorizer,
-                                     feature_selector=feature_selector,
                                      feature_boosting_scalar=feature_boosting_scaler)
 
     log.info("Multiplier to boost the features in DTM (CSR) Matrix")

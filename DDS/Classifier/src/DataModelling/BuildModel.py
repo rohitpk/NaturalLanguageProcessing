@@ -24,11 +24,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 from FeaturePreprocessing.FeaturePreprocessing import FeaturePreprocessor
 from FeatureEngineering.FeatureBoosting import FeatureBooster
-from FeatureSelection.FeatureSelection import FeatureSelection
 
 from DataModelling import logger
 
-import matplotlib.pyplot as plt
 
 log = logger(name="DataModelling.BuildModel")
 
@@ -69,13 +67,9 @@ class BuildModel(object):
     def classifier():
         return SGDClassifier()
 
-    @staticmethod
-    def feature_selector():
-        return FeatureSelection()
 
     def feature_booster(self):
         return FeatureBooster(vectorizer=self.vectorizer(), feature_boosting_scalar=1.5,
-                              feature_selector=self.feature_selector(),
                               feature_file_name=DEFAULT_FILENAME_FOR_NEGATIVE_WORDS,
                               feature_column_name=DEFAULT_COLUMN_NAME_FOR_NEGATIVE_WORDS)
 

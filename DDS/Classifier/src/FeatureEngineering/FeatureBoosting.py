@@ -17,7 +17,7 @@ DEFAULT_COLUMN_NAME_FOR_NEGATIVE_WORDS = "negative_words"
 
 class FeatureBooster(TransformerMixin, BaseEstimator):
 
-    def __init__(self, vectorizer=None, feature_boosting_scalar=2, feature_selector=None,
+    def __init__(self, vectorizer=None, feature_boosting_scalar=2,
                  feature_file_name=DEFAULT_FILENAME_FOR_NEGATIVE_WORDS,
                  feature_column_name=DEFAULT_COLUMN_NAME_FOR_NEGATIVE_WORDS):
 
@@ -25,7 +25,7 @@ class FeatureBooster(TransformerMixin, BaseEstimator):
         self.word_list = set(df[feature_column_name].tolist())
 
         self.vectorizer = vectorizer
-        self.feature_selector = feature_selector
+        # self.feature_selector = feature_selector
         self.feature_boosting_scalar = feature_boosting_scalar
         self.feature_names = None
         log.info("Feature boosting scalar multiplier value: {}".format(self.feature_boosting_scalar))
