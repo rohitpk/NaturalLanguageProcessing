@@ -38,7 +38,7 @@ log = logger(name="DataModelling.__main__")
 
 parser = argparse.ArgumentParser(description="DataModelling")
 parser.add_argument("--boosterMultiplier", type=float,
-                    default=2.0, help="Multiplier to boost the features in DTM Matrix")
+                    default=1.0, help="Multiplier to boost the features in DTM Matrix")
 parser.add_argument("--testSize", type=float,
                     default=0.2, help="Test_size fraction for train test split")
 parser.add_argument("--verbose", type=bool,
